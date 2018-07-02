@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #sheet{
+        border: 1px solid black;
+        text-align: left;
+        width: 750px;
+        height: auto;
+        font-size: xx-large;
+    }
+    #manual {
+        border: 1px solid black;
+        width: 750px;
+        height: 50px;
+        color: red;
+        font-size: xx-large;
+        text-align: center;
+    }
+    #col_0, #c_0{
+       background-image: url("spin.gif") ;
+        background-repeat: no-repeat;
+    }
+    #col_1, #c_1{
+        background-image: url("spin.gif") ;
+        background-repeat: no-repeat;
+        margin: 0 0 0 0;
+    }
+    #col_2, #c_2{
+        background-image: url("spin.gif") ;
+        background-repeat: no-repeat;
+        margin: 0 0 0 0;
+    }
+</style>
+<script>
+    var ex_arr;
+    var u_arr;
+    var Max_count=0;
+    var number=0;
+    var current_count=0;
+    var line;
+    var quiz;
+    function ShowExam() {
+        document.getElementById("exam").innerHTML="<img src='exam.gif'>";
+        document.getElementById("exam").innerHTML+="<p>ハノイの塔は円盤が大きい物から小さいな円盤の順番で立て挙げるパズルゲームです。</p>";
+        document.getElementById("exam").innerHTML+="<ol><li>一つの場面は一個した動けない。</li>"+
+            "<li>大きな円盤が小さな円盤の上に並べない。</li></ol>"
+    }
+    //타워 객체 생성
+    function tower(arg_i){
+        this.img=arg_i+".gif";
+        this.name=arg_i+1;
+    }
+
+    function Createtower(){
+        //<div>태그 초기화
+        for(var row=0;row<5;row++){
+            for(var col=0;col<3;col++){
+                var div=document.getElementById("col_"+col).getElementsByClassName(row)[0];
+                var div_c=document.getElementById("c_"+col).getElementsByClassName(row)[0];
+                if(div.firstElementChild){
+                    div.removeChild(div.firstElementChild);
+                }
+                if(div_c.firstElementChild){
+                    div_c.removeChild(div_c.firstElementChild);
+                }
+            }
+        }
+    number = parseInt(document.getElementById("input").value);
+        //최대 턴 수
+    Max_count=Math.pow(2 , number)-1;
+            if(isNaN(number)) {
+                alert("数字入力が必要です。.");
+            }
+            else if(number>5){
+                alert("数字５を超えました。");
+            }
+        else {
+                    //초기 생성칸
+                    //배열 생성&초기화
+                    ex_arr = new Array(5);
+                    u_arr=new Array(5);
+                    for (var i = 0; i < 5; i++) {
+                        ex_arr[i] = new Array(3);
+                        u_arr[i] =   new Array(3);
+                        ex_arr[i].fill(0);
+                        u_arr[i].fill(0);
+                    }
+
+                    for (var i = 0; i < number; i++) {
+                            var col = document.getElementById("col_0");
+                            var Image = document.createElement("img");
+                            ex_arr[ex_arr.length-number+i][0] = new tower(i);
+                            /*mage.src = ex_arr[5-number+i][0].img;
+                            col.getElementsByClassName(ex_arr.length-number+i)[0].appendChild(Image);*/
+                            var rolumn=u_arr.length-number+i;
+                        u_arr[rolumn][0] = ex_arr[ex_arr.length-number+i][0];
+                        var c=document.getElementById("c_0");
+
+                        Image = document.createElement("img");
+                        Image.src = u_arr[rolumn][0].img;
+                        c.getElementsByClassName(rolumn)[0].appendChild(Image);
+                        c.getElementsByClassName(rolumn)[0].setAttribute("ondragstart","dragstart(event)" );
+                        c.getElementsByClassName(rolumn)[0].setAttribute("ondragover","dragover(event)" );
+                        c.getElementsByClassName(rolumn)[0].setAttribute("ondrop","drop(event)" );
+                    }
+                    current_count=0;
+                    quiz=parseInt(Math.random()*Max_count)+1;
+                    document.getElementById("manual").innerText="始めから "+quiz+" 番目のハノイの塔を立て挙げよう。";
+                    document.getElementById("sheet").innerHTML="";
+        }
+        document.getElementById("input").value="";
+    }
+    //제출한 답과 정답 비교
+    function compare(arg_t){
+        document.getElementById("turn").value=quiz;
+        InputTurn();
+        document.getElementById("sheet").innerHTML="";
+            for (var r = 0; r < 5; r++) {
+                for (var c = 0; c < 3; c++) {
+                    if (typeof(u_arr[r][c])=="object") {
+                            if(typeof(ex_arr[r][c])=="object"){
+                                    if(u_arr[r][c].name==ex_arr[r][c].name){
+                                       document.getElementById("sheet").innerHTML+="<img src='round.png'>"+u_arr[r][c].name+"円盤は正しいです。<br>";
+
+                                    }
+                                    else{
+                                        document.getElementById("sheet").innerHTML+="<img src='triangle.png'>"+u_arr[r][c].name+"番目の位置に他の円盤が必要です.<br>";
+                                    }
+                            }
+                            else{
+                                document.getElementById("sheet").innerHTML+="<img src='wrong.png'>"+u_arr[r][c].name+"円盤は要らないところです。<br>";
+                            }
+                    }
+                }
+            }
+
+    }
+    function dragstart(e){
+        var bool=true;
+        for(var i=0;i<number;i++){
+            for(var j=0;j<3;j++) {
+                var tmp = u_arr[ u_arr.length - number + i][j];
+                if (typeof(tmp)=="object"&&e.currentTarget.firstElementChild.src.match(tmp.img)) {
+                       line=JSON.stringify(tmp);
+
+                    e.currentTarget.setAttribute("ondragover","dragover(event)" );
+                    u_arr[ u_arr.length - number + i][j]=0;
+                        bool=false;
+                        break;
+                }
+            }
+            if(bool==false){
+                break;
+            }
+        }
+
+    }
+    function dragover(e) {
+        e.preventDefault();
+        //원 위치의 <img>지우기
+       try {
+
+           e.currentTarget.removeChild(e.currentTarget.firstElementChild);
+
+        }catch(Exception){
+
+        }
+    }
+    function drop(e) {
+            e.preventDefault();
+            var obj = JSON.parse(line);
+            var image = document.createElement("img");
+            image.src = obj.img;
+            e.currentTarget.appendChild(image);
+            e.currentTarget.removeAttribute("ondragover");
+        for(var row=0;row<u_arr.length;row++){
+            for(var col=0;col<3;col++) {
+                var div=document.getElementById("c_"+col).getElementsByClassName(row)[0];
+                if(div.firstElementChild!=null&&div.firstElementChild.src==e.currentTarget.firstElementChild.src){
+                    u_arr[row][col]=obj;
+
+                }
+            }
+        }
+    }
+    //턴 수에 따른 하노이 탑 보기
+    function InputTurn() {
+       var turn= document.getElementById("turn");
+        if(isNaN(parseInt(turn.value)))
+            alert("数字入力してください。.");
+        else {
+            //<div>태그 초기화
+            for (var row = 0; row < ex_arr.length; row++) {
+                for (var col = 0; col < 3; col++) {
+                    ex_arr[row][col] = 0;
+                    var div = document.getElementById("col_" + col).getElementsByClassName(row)[0];
+                    if (div.firstElementChild) {
+                        div.removeChild(div.firstElementChild);
+                    }
+                }
+            }
+            //초기화 된 이미지들
+            for (var i = 0; i < number; i++) {
+                var col = document.getElementById("col_0");
+                var Image = document.createElement("img");
+                ex_arr[ex_arr.length - number + i][0] = new tower(i);
+                Image.src = ex_arr[5 - number + i][0].img;
+                col.getElementsByClassName(ex_arr.length - number + i)[0].appendChild(Image);
+            }
+            answer(turn.value);
+            //turn 초기화
+
+        }
+        turn.value = "";
+    }
+    function answer(t){
+        for(var time=0; time<=t; time++) {
+            forward_move(time);
+        }
+        current_count=t;
+        document.getElementById("current_time").innerText="番目:"+current_count;
+    }
+    function forward(argCur_count){
+        if(current_count==Max_count){
+            alert("最後です。");
+        }
+        else {
+            current_count = ++argCur_count;
+            forward_move(current_count);
+            document.getElementById("current_time").innerText="番目:"+current_count;
+        }
+    }
+    function backward(argCur_count){
+        if(argCur_count==0){
+            alert("最初の番目です。")
+        }
+        else {
+            backward_move(current_count);
+            current_count = --argCur_count;
+            document.getElementById("current_time").innerText="番目:"+current_count;
+        }
+    }
+    function backward_move(argtime){
+        for (var spin = 1; spin <= number; spin++) {
+            //원판의 올바른 이동파악
+            if (check(argtime, spin) == true) {
+                var con = false;
+                for (var row = 0; row <5; row++) {
+                    if (con == true)
+                        break;
+                    for (var col = 0; col < 3; col++) {
+                        if (typeof(ex_arr[row][col])=="object"&&ex_arr[row][col].name == spin) {
+                            //(스핀갯수+현재 스핀)%2가 홀수 시
+                            if ((number + spin) % 2 != 0) {
+                                var temp = col;
+                                temp--;
+                                if (temp == -1) {
+                                    temp = 2;
+                                }
+                                for (var i = 4; i >= 0; i--) {
+                                    if (ex_arr[i][temp] == 0) {
+                                        ex_arr[i][temp] = ex_arr[row][col];
+                                        var column_div=document.getElementById("col_"+col).getElementsByClassName(row)[0];
+                                        column_div.removeChild(column_div.firstElementChild);
+                                        ex_arr[row][col] = 0;
+                                        var Image = document.createElement("img");
+                                        Image.src=ex_arr[i][temp].img;
+                                        document.getElementById("col_"+temp).getElementsByClassName(i)[0].appendChild(Image);
+                                        con = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            }
+                            // (스핀갯수+현재 스핀)%2가 짝수 시
+                            else {
+                                var temp = col;
+                                temp++;
+                                if (temp == 3) {
+                                    temp = 0;
+                                }
+                                for (var j =4; j >= 0; j--) {
+                                    if (ex_arr[j][temp] == 0) {
+                                        ex_arr[j][temp] = ex_arr[row][col];
+                                        var column_div=document.getElementById("col_"+col).getElementsByClassName(row)[0];
+                                        column_div.removeChild(column_div.firstElementChild);
+                                        ex_arr[row][col]=0;
+                                        var Image = document.createElement("img");
+                                        Image.src=ex_arr[j][temp].img;
+                                        document.getElementById("col_"+temp).getElementsByClassName(j)[0].appendChild(Image);
+                                        con = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    function forward_move(argtime){
+        for (var spin = 1; spin <= number; spin++) {
+            //원판의 올바른 이동파악
+            if (check(argtime, spin) == true) {
+                var con = false;
+                for (var row = 0; row <5; row++) {
+                    if (con == true)
+                        break;
+                    for (var col = 0; col < 3; col++) {
+                        if (typeof(ex_arr[row][col])=="object"&&ex_arr[row][col].name == spin) {
+                            //(스핀갯수+현재 스핀)%2가 짝수 시
+                            if ((number + spin) % 2 == 0) {
+                                var temp = col;
+                                temp--;
+                                if (temp == -1) {
+                                    temp = 2;
+                                }
+                                for (var i = 4; i >= 0; i--) {
+                                    if (ex_arr[i][temp] == 0) {
+                                        ex_arr[i][temp] = ex_arr[row][col];
+                                        var column_div=document.getElementById("col_"+col).getElementsByClassName(row)[0];
+                                        column_div.removeChild(column_div.firstElementChild);
+                                        ex_arr[row][col] = 0;
+                                        var Image = document.createElement("img");
+                                        Image.src=ex_arr[i][temp].img;
+                                        document.getElementById("col_"+temp).getElementsByClassName(i)[0].appendChild(Image);
+
+                                        con = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            }
+                            //(스핀갯수+현재 스핀)%2가 홀수 시
+                            else {
+                                var temp = col;
+                                temp++;
+                                if (temp == 3) {
+                                    temp = 0;
+                                }
+                                for (var j =4; j >= 0; j--) {
+                                    if (ex_arr[j][temp] == 0) {
+                                        ex_arr[j][temp] = ex_arr[row][col];
+                                        var column_div=document.getElementById("col_"+col).getElementsByClassName(row)[0];
+                                        column_div.removeChild(column_div.firstElementChild);
+                                        ex_arr[row][col]=0;
+                                        var Image = document.createElement("img");
+                                        Image.src=ex_arr[j][temp].img;
+                                        document.getElementById("col_"+temp).getElementsByClassName(j)[0].appendChild(Image);
+                                        con = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    //올바른 이동파악 알고리즘
+    function check(argtime,argspin) {
+        var shyo1=Math.pow(2, argspin-1);
+        var shyo2=Math.pow(2, argspin);
+
+        if((argtime-shyo1)%shyo2==0)
+            return true;
+        else
+            return false;
+    }
+</script>
+<body style="margin: 0 100px;">
+<div id="exam">
+
+</div>
+<input type="button" value="例問" onclick="ShowExam()">
+<div>
+    <input type="text" id="input" size="12" placeholder="円の数">
+    <input type="button" value="Start" onclick="Createtower()" >
+    <br>
+    <input type="text" id="turn" size="12" placeholder="みたい番目" >
+    <input type="button" value="turn" onclick="InputTurn()" >
+    <br>
+    <br>
+    <img   src="backward.png" onclick="backward(current_count)">
+    <img   src="forward.png" onclick="forward(current_count)">
+
+  <img src="submit.png" onclick="compare(quiz)">正解
+</div>
+<div id="manual"></div>
+<div style=" display: table-cell; vertical-align: middle;">
+<div id="user">
+    <div id="c_0" style="width:240px; height: 300px;  float: left;">
+        <div class="0"  style="width:auto; height: 50px; margin:0 auto;">1</div>
+        <div class="1" style="width:auto; height: 50px;  margin:0 auto;">2</div>
+        <div class="2" style="width:auto; height: 50px; margin:0 auto;">3</div>
+        <div class="3" style="width:auto; height: 50px; margin:0 auto;">4</div>
+        <div class="4" style="width:auto; height: 50px; margin:0 auto;">5</div>
+    </div>
+
+    <div id="c_1"  style="width:240px; height: 300px; float: left;" >
+        <div class="0" ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px; margin:0 auto;">1</div>
+        <div class="1" ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px;  margin:0 auto;">2</div>
+        <div class="2"  ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px; margin:0 auto;">3</div>
+        <div class="3"  ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px; margin:0 auto;">4</div>
+        <div class="4"  ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px; margin:0 auto;">5</div>
+
+    </div>
+
+    <div id="c_2"  style="width:240px; height: 300px; float: left;" >
+        <div class="0" ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px; margin:0 auto;">1</div>
+        <div class="1"  ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px;  margin:0 auto;">2</div>
+        <div class="2"  ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px; margin:0 auto;">3</div>
+        <div class="3"  ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px; margin:0 auto;">4</div>
+        <div class="4"  ondragover="dragover(event)" ondrop="drop(event)" style="width:auto; height: 50px; margin:0 auto;">5</div>
+    </div>
+    <div id="current_time" style="font-size:xx-large"></div>
+<div id="bar">
+        <div id="col_0" style="width:240px; height: 300px;  float: left;">
+            <div class="0"  style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="1" style="width:auto; height: 50px;  margin:0 auto;"></div>
+            <div class="2" style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="3" style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="4" style="width:auto; height: 50px; margin:0 auto;"></div>
+        </div>
+
+        <div id="col_1"  style="width:240px; height: 300px; float: left;" >
+            <div class="0"  style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="1" style="width:auto; height: 50px;  margin:0 auto;"></div>
+            <div class="2" style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="3" style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="4" style="width:auto; height: 50px; margin:0 auto;"></div>
+
+        </div>
+
+        <div id="col_2"  style="width:240px; height: 300px; float: left;" >
+            <div class="0"  style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="1" style="width:auto; height: 50px;  margin:0 auto;"></div>
+            <div class="2" style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="3" style="width:auto; height: 50px; margin:0 auto;"></div>
+            <div class="4" style="width:auto; height: 50px; margin:0 auto;"></div>
+        </div>
+
+    </div>
+</div>
+</div>
+<div id="sheet"></div>
+</body>
+</html>
