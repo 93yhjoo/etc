@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	a:hover{color: #AE00FF;}
+a:active{color: black;}
+	a{
+		color: #AA9866;
+		text-decoration:none;
+
+	}
+	/*고정바*/
+#top_bar{
+	background-color: rgba(0,0,0,0.75);
+	position: fixed;
+		float: left;
+	left: 0; top: 0; right: 0;
+    height: 100px;
+    opacity: .7;
+}
+#top_bar h1{
+	margin: -20px auto;
+	text-align: center;
+}
+#audio{
+	width: 230px;
+	height: 24px;
+	/*절대 위치*/
+	position: absolute;
+left: 0px;
+top: 7px;
+}
+.intro{
+	float:left;
+	font-size: 20px;
+	font-family: MuseoSlab-300,"Times New Roman",Georgia,Serif;
+	position: absolute;
+  	bottom: 0px;
+}
+  #topMenu {
+            height: 30px;  /* 메인 메뉴의 높이 */
+            width: 400px;  /* 메인 메뉴의 넓이 */
+    }
+    #topMenu ul {           /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
+        list-style-type: none;  /* 메인 메뉴 안의 ul 내부의 목록 표시를 없애줌 */
+        margin: 0px;            /* 메인 메뉴 안의 ul의 margin을 없앰 */
+        padding: 0px;           /* 메인 메뉴 안의 ul의 padding을 없앰 */
+    }
+    #topMenu ul li {            /* 메인 메뉴 안에 ul 태그 안에 있는 li 태그의 스타일 적용(상위/하위메뉴 모두) */
+        color: #AA9866;               /* 글씨 색을 흰색으로 설정 */
+        background-color: #EFFFE8;  
+        float: left;    
+        margin: 0px 10px;
+        line-height: 30px;          /* 텍스트 한 줄의 높이를 30px로 설정 */
+        vertical-align: middle;     /* 세로 정렬을 가운데로 설정 */
+        text-align: center;         /* 텍스트를 가운데로 정렬 */
+        position: relative;         /* 해당 li 태그 내부의 top/left 포지션 초기화 */
+    }
+    .menuLink, .submenuLink {           /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
+        text-decoration:none;               /* a 태그의 꾸밈 효과 제거 */
+        display: block;                     /* a 태그의 클릭 범위를 넓힘 */
+        width: 200px;                       /* 기본 넓이를 150px로 설정 */
+        font-size: 20px;                    /* 폰트 사이즈를 12px로 설정 */
+        font-weight: bold;                  /* 폰트를 굵게 설정 */
+        font-family:  MuseoSlab-300,"Times New Roman",Georgia,Serif;
+    }
+    .topMenuLi:hover .menuLink {    /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
+        color: #AA9866;                 /* 글씨 색 빨간색 */
+        background-color: #EFFFE8;  /* 배경색을 밝은 회색으로 설정 */
+    }
+    .submenuLink {          /* 하위 메뉴의 a 태그 스타일 설정 */
+        color: #AA9866;             
+        background-color: #EFFFE8;    
+   
+    }
+
+    .submenu {              /* 하위 메뉴 스타일 설정 */
+        position: absolute;     /* html의 flow에 영향을 미치지 않게 absolute 설정 */
+        height: 0px;            /* 초기 높이는 0px로 설정 */
+        overflow: hidden;       /* 실 내용이 높이보다 커지면 해당 내용 감춤 */
+        transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(기본) */
+        -webkit-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 크롬/사파라ㅣ) */
+    }
+    .topMenuLi:hover .submenu { /* 상위 메뉴에 마우스 모버한 경우 그 안의 하위 메뉴 스타일 설정 */
+        height: 93px;           /* 높이를 93px로 설정 */
+    }
+    .submenuLink:hover {        /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
+        color: #AE00FF;               
+        background-color:#EFFFE8;  
+    }
+body{
+  margin: 0 auto;
+  width: 1000px;
+  background: rgba(0,0,0,0.75);
+}
+  #page-wrapper{
+  background: white;
+  margin: 40px 0; padding: 20px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+/*hover 효과*/
+.hover {
+		max-width:580px; 
+		height:380px; 
+		line-height:480px; 
+		margin:20px auto; 
+		background-image: url("img/ziro.jpg"); 
+		text-align:center; transition:all 0.6s, color 0.3s 0.3s;
+        font-size: 30px; cursor: pointer;  
+	}
+	.hover:hover{
+		color:#AA9866;
+	}
+.effect:hover{
+		box-shadow:
+			580px 0 0 0  rgba(0,0,0,0.25) inset, 
+			-580px 0 0 0  rgba(0,0,0,0.25) inset;
+	}
+img.logo{
+	height: 80px;
+	width: auto;
+	/*이미지 중앙 정렬*/
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#nav{
+	text-align: center;
+}
+#nav p{
+	color: gray;
+	font-family: 굴림;
+	font-size: 15px;
+
+}
+figcaption{
+	color: gray;
+	font-family: 굴림;
+	font-size: 15px;
+
+}
+#article p{
+	font-family: Arial;
+	font-size: 20px; 
+}
+footer{
+	border: 1px solid white;
+	border-radius: 15px;
+	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+</style>
+</head>
+<body>
+<div id="top_bar">
+  <div>
+   <h1>
+      <audio id="audio" src="stayalone.mp3" controls></audio>
+    <a  href="homepage.html"><img src="img/logo.png " width="200X100" / ></a>
+   </h1>   
+  </div>
+<div>
+ <ul class="intro">
+<nav id=topMenu>
+  <ul>
+  <li><a href="homepage.html">HOME</a></li>
+    <li><a href="intro.html">INTRODUCE</a></li>
+    <li class="topMenuLi">Menu
+    <ul class="submenu">
+      <li><a class="submenuLink longLink" href="Gallery.html">면류</a></li>
+      <li><a class="submenuLink longLink" href="Gallery2.html">사이드 메뉴</a></li>
+    </ul></li>
+    <li><a href="homepage.html#inf">resurvation</a></li>
+  </ul>
+  </nav>
+ </ul>
+</div>
+</div>
+<div id="page-wrapper">
+	<div id="nav">
+	<h1>'라면 지로'를 탐하다.</h1>
+	<hr/>
+	<p>2016년 6월 11일 주영호</p>
+	<hr/>
+	</div>
+<div id="section">
+<!--text-align 중앙정렬-->
+<div style="text-align: center">
+<div class="hover effect">
+<span>라면 지로 많은 양과 토핑으로 사랑받는다.</span>	 
+     </div>
+    <figcaption><ins>라면지로는 취향따라 선택가능한 토핑과 풍부한 양으로 인기가 많다.</ins>
+    </figcaption>
+</div>
+</div>
+	<div id="article">
+		<p>도쿄 게이오 대학에서 멀리 떨어져 있지 않고 미타역에서 걸어서 10분걸으면 도착하면 보이면 라면지로 본점. 본점이면 으리으리한 건물로 생각되지만 실상은 그렇지 않다. 일본 특유의 소박한 동네구멍 가게크기의 집이지만 언제나 사람들이 줄서서 먹고 있다. </p>
+		<p>많은 양과 취향대로 만들어 주는 라면 맛에 많은 사람들이 줄서서 가면서 먹고 있으며 게이오 대학나온 할아버지가 운영하기에 게이오 대학생으로 보이는 학생들이 줄서서 얘기를 나누는 것을 볼 수 있다. </p>
+		<p>워낙에 인기가 있다보니 영업시간 1시간 전에 가도 선착순에서 짤릴 경우도 있다. 한번 가보고픈 사람은 길 찾기에 사전조사하자. </p>
+	</div>
+<footer>
+<div style="text-align: center" >
+<img src="img/place.png">
+<p>영업 시간<br/>월-토: 9:00AM~3:00PM/5:00PM~8:00PM<br/>일요일 휴무</p>
+</div>
+</footer>
+</div>
+</body>
+</html>

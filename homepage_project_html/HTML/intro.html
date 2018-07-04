@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+/*하이퍼링크 밑줄 제거및 hover*/
+a:hover{color: #AE00FF;}
+a:active{color: black;}
+	a{
+		color: #AA9866;
+		text-decoration:none;
+
+	}
+/*고정바*/
+#top_bar{
+	background-color: rgba(0,0,0,0.75);
+	position: fixed;
+	left: 0; top: 0; right: 0;
+    height: 150px;
+    opacity: .7;
+}
+
+/*왼쪽 정렬*/
+#top_bar {
+	float: left;
+}
+#top_bar h1{
+	margin: -20px auto;
+	text-align: center;
+}
+#audio{
+	width: 230px;
+	height: 24px;
+	/*절대 위치*/
+	position: absolute;
+left: 0px;
+top: 7px;
+}
+.intro{
+	float:left;
+	font-size: 20px;
+	font-family: MuseoSlab-300,"Times New Roman",Georgia,Serif;
+	position: absolute;
+  	bottom: 0px;
+}  
+#topMenu {
+            height: 30px;  /* 메인 메뉴의 높이 */
+            width: 450px;  /* 메인 메뉴의 넓이 */
+    }
+    #topMenu ul {           /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
+        list-style-type: none;  /* 메인 메뉴 안의 ul 내부의 목록 표시를 없애줌 */
+        margin: 0px;            /* 메인 메뉴 안의 ul의 margin을 없앰 */
+        padding: 0px;           /* 메인 메뉴 안의 ul의 padding을 없앰 */
+    }
+    #topMenu ul li {            /* 메인 메뉴 안에 ul 태그 안에 있는 li 태그의 스타일 적용(상위/하위메뉴 모두) */
+        color: #AA9866;               /* 글씨 색을 흰색으로 설정 */
+        background-color: #EFFFE8;  
+        float: left;    
+        margin: 0px 10px;
+        line-height: 30px;          /* 텍스트 한 줄의 높이를 30px로 설정 */
+        vertical-align: middle;     /* 세로 정렬을 가운데로 설정 */
+        text-align: center;         /* 텍스트를 가운데로 정렬 */
+        position: relative;         /* 해당 li 태그 내부의 top/left 포지션 초기화 */
+    }
+    .menuLink, .submenuLink {           /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
+        text-decoration:none;               /* a 태그의 꾸밈 효과 제거 */
+        display: block;                     /* a 태그의 클릭 범위를 넓힘 */
+        width: 200px;                       /* 기본 넓이를 150px로 설정 */
+        font-size: 20px;                    /* 폰트 사이즈를 12px로 설정 */
+        font-weight: bold;                  /* 폰트를 굵게 설정 */
+        font-family:  MuseoSlab-300,"Times New Roman",Georgia,Serif;
+    }
+    .topMenuLi:hover .menuLink {    /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
+        color: #AA9866;                 /* 글씨 색 빨간색 */
+        background-color: #EFFFE8;  /* 배경색을 밝은 회색으로 설정 */
+    }
+    .submenuLink {          /* 하위 메뉴의 a 태그 스타일 설정 */
+        color: #AA9866;             
+        background-color: #EFFFE8;    
+   
+    }
+    .submenu {              /* 하위 메뉴 스타일 설정 */
+        position: absolute;     /* html의 flow에 영향을 미치지 않게 absolute 설정 */
+        height: 0px;            /* 초기 높이는 0px로 설정 */
+        overflow: hidden;       /* 실 내용이 높이보다 커지면 해당 내용 감춤 */
+        transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(기본) */
+        -webkit-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 크롬/사파라ㅣ) */
+    }
+    .topMenuLi:hover .submenu { /* 상위 메뉴에 마우스 모버한 경우 그 안의 하위 메뉴 스타일 설정 */
+        height: 93px;           /* 높이를 93px로 설정 */
+    }
+    .submenuLink:hover {        /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
+        color: #AE00FF;               
+        background-color:#EFFFE8;  
+    }
+/*뒷배경*/
+	body{
+  margin: 0 auto;
+  width: 1000px;
+  background:  rgba(0,0,0,0.75);
+}
+/*본문 스타일 */
+  #page-wrapper{
+  background: white;
+  margin: 40px 0; padding: 20px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+
+img.logo{
+	height: 80px;
+	width: auto;
+	/*이미지 중앙 정렬*/
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#nav{
+	text-align: center;
+}
+#nav p, #front p{
+	color: gray;
+	font-family:  HY견고딕,"Times New Roman",Georgia,Serif;
+	font-size: 12px;
+}
+
+.source{
+  border: 4px solid #990000;
+}
+.source:hover{
+  border: 7px solid #AA9866;
+  border-radius: 5px;
+}
+figcaption{
+	color: gray;
+	font-family:  HY견고딕,"Times New Roman",Georgia,Serif;
+	font-size: 20px;
+
+
+}
+#article p{
+	font-family:  돋움,"Times New Roman",Georgia,Serif;
+	font-size: 15px; 
+}
+footer{
+	border: 1px solid white;
+	border-radius: 15px;
+	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+/*목차 스타일*/
+.list{
+	display: inline-block;
+	width: 200px; height: 300px;
+	border: 1px solid gray;
+	border-radius: 2px;
+	box-shadow: 0 2px 10px rgba(100, 100, 100, 0.3);
+
+}
+/* span을 block으로 주어 공간을 세로 정렬 시킴.*/
+.item{
+	display: block;
+  font-family:  HY견고딕,"Times New Roman",Georgia,Serif;
+}
+}
+.list_inn{
+	padding-left: 20px;
+ font-family:  HY견고딕,"Times New Roman",Georgia,Serif;
+}
+</style>
+<script>
+function zoomin(){
+	nowZoom=nowZoom+20;
+	if(nowZoom>=200)nowZoom=200;
+	zooms();
+}
+</script>
+</head>
+<!--본문-->
+<body>  
+<div id="top_bar">
+  <div>
+   <h1>
+   <audio id="audio" src="stayalone.mp3" controls></audio>
+    <a  href="homepage.html"><img src="img/logo.png " width="300X150" / ></a>
+   </h1>
+  </div>
+<div>
+ <ul class="intro">
+<nav id=topMenu>
+  <ul>
+   <li><a href="homepage.html">HOME</a></li>
+    <li><a href="intro.html">INTRODUCE</a></li>
+    <li class="topMenuLi">MENU
+    <ul class="submenu">
+      <li><a class="submenuLink longLink" href="Gallery.html">면류</a></li>
+      <li><a class="submenuLink longLink" href="Gallery2.html">사이드 메뉴</a></li>
+    </ul></li>
+    <li><a href="homepage.html#inf">RESERVATION</a></li>
+  </ul>
+  </nav>
+ </ul>
+</div>
+</div>
+<div id="page-wrapper">
+ <div id="front">
+ <p>본 항목은 크롬브라우저에 최적화 되어있습니다.</p>	
+<img class="logo" src="img/ramenya.jpg" >
+	<hr/>
+ </div>
+	<div id="nav">
+	<h1>'일본라면'을 묻다.</h1>
+	<hr/>
+	<p>2016년 6월 11일 주영호</p>
+	<hr/>
+	</div>
+<div id="section">
+<!--text-align 중앙정렬-->
+<div style="text-align: center">
+	 <figure>	
+	   <a href="#" onclick="window.open('http://www.raumen.co.jp/', '', 'left='+(screen.availWidth-660)/2+',top='+(screen.availHeight-430)/2+', width=660px,height=430px');"><img class="source" src="img/source.jpg" width="800X480"></a>
+     </figure>
+    <figcaption>일본식라면의 특징은 육수이다.
+    </figcaption>
+</div>
+</div>
+
+<div class="list" id="doc">
+<div>
+<h2>목차</h2>
+	<span class="item"><a href="#1">1</a>.개요</span>
+    <span class="item"><a href="#2">2</a>.읽을거리</span>
+	<span class="item"><a href="#3">3</a>.라면의 종류</span>
+	 <div class= "list_inn">
+	 	<span class="item"><a href="#3.1">3.1</a>.육수별</span>
+	 	<span class="item"><a href="#3.3">3.2</a>.특수한 라면</span>
+	 </div>
+	 <span class="item"><a href="#4">4</a>.고명</span>
+</div>
+</div>
+	<div id="article">
+	<h1><a id="1" href="#doc">1.</a>개요 </h1><hr/>
+		<p>일본식 중화 요리이자 일본 요리.이기 때문에 일본의 중국집에서도 취급한다. 한국의 짜장면처럼 중화 요리에서 출발했지만 인기를 얻어 대중적인 일본 요리로서의 시민권을 얻은 비슷한 케이스.
+		</P> 
+		<p>중국에서 재료 및 만드는 방법에 따른 분류 중 하나인 라면을 탕에 넣어 내놓는 탕면에서 아이디어를 얻어 일본에서 독자적으로 개발되고 만들어진 	요리가 바로 라멘.
+		</p>
+		<p>호칭은 메이지 초기에는 남경에서 온 소바라는 의미에서 남경소바(南京そば)로 불렸으며, 메이지 중기 무렵은 지나소바(支那そば), 2차 대전 후에는 중화소바(中華そば)라고 불렸으나 현재는 제목과 같이 라멘이라고 부르는 것이 보통이다. 다만 중국집 등에서는 아직 중화소바라고 부르는 경우도 많다(이 경우 맛은 쇼유라멘과 거의 비슷하지만, 가게에 따라 약간 다른 경우도 있다).
+		</p>
+		<p>중화소바를 몰아내고 라멘이라는 호칭이 전국적으로 퍼지게 된 것은, 인스턴트 라멘(정확히는 인스턴트 라멘 브랜드 '삿포로 라멘'과 '닛신 치킨라멘') 붐의 영향이라는 설이 일반적이다.
+		</p>
+<h1><a id="2" href="#doc">2.</a>읽을거리 
+</h1>
+<hr/>
+<p>일본에 가면 한국과 달리 진정한 본고장 맛을 느낄 거라 기대하는 이들이 많지만 현실은 시궁창인지라 적지 않은 업소에서 화학조미료를 듬뿍 사용하여 맛을 낸다. 물론 여러가지 재료를 넣어서 스프를 우려내는 업소가 전혀 없는 것은 아니지만, 그런 곳은 진짜 장인들이 하는 전문 업소에나 가야 볼 수 있다.
+<a id="rm-1" title="지로라면,마루겐라면 집은 명인이다!!" href="#m-1">[1]
+</a>
+</p>
+<P>
+ 2010년 기준 1그릇에 기본 600엔이라고 되어있는데 이 가격에 나오는 라멘은 요식업소용으로 공장에서 대량 생산되는 육수를 사용하는 것이 대부분이다. 점포에서 직접 뽑아내는 육수의 경우 재료비, 인건비 등이 추가되어 가격이 상승할 수밖에 없기 때문이다. 물론 장인들이 많은 요식업답게 영리보다는 지역 사회에 공헌한다는 사명감에 불타 질 좋은 라멘을 이런 가격에 공급하는 가게도 없진 않지만 보통 일본 내에서도 제대로 레시피를 따르는 라멘의 최저 가격대는 780엔 선으로 꼽힌다.
+</P>
+<p>550엔부터 650엔 정도의 저가형 라멘은 전문점 기준으로 최저가격대의 메뉴이고 일반 음식점에서 취급하는 라멘은 오히려 라멘 전문점보다 평균 가격이 낮아서 보통 이 정도이다. 그러나 이 가격으로 마진을 남긴다는 것은 화학조미료를 의심해봐야 한다. 비싼 재료와 스프를 쓰면 당연히 코스트가 올라가고 관리까지 잘 해줘야 하므로 단가가 팍 올라가야 정상. 결국 싼 게 비지떡이란 말이다.</p>
+<p>
+체인점의 규격화된 라멘이 아닌 만화에서나 나올 법한 공을 들인 라멘을 먹고 싶다면 800엔~1,000엔은 투자해야 된다고 봐도 무방하다. 물론 서민의 음식이라는 것이 틀린 얘기는 아닌데 만화 등의 서브컬쳐로 인해서 조금 과장된 면이 있다. 일본에서도 서민들은 1끼를 500엔에서 600엔 정도로 해결하며 이건 사실 한국의 서민 음식인 찌개류나 백반 가격과 별 차이도 없다. 환율크리 때문에 일본 쪽이 상대적으로 비싸 보이는데 애초에 기본 경제력에서 차이가 나기 때문에 수입 대비 지출로 따지면 오히려 그쪽이 더 부담없는 편이다.
+</p>
+<p>
+한국인 중에는 만화만 보고 잔뜩 기대했다가 실물을 접해보고 실망하는 경우도 많다. 라멘은 지역별로 맛이 다른 경향이 있는데 삿포로 등 추운 북부 지방의 라멘은 현지에 맞춰서 기름기가 많거나 한 경우도 있다. 지방색이 강하고 그에 따른 맛의 변화가 커서 호불호가 갈리는 음식이 다 그렇듯 일본 내에서 라면 재료에 대한 호불호는 이미 탕수육논쟁 따위는 명함도 못 내밀 정도로 판이 큰 국민 논쟁거리이다.
+</p>
+
+<h1><a id="3" href="#doc">3.</a>라면의 종류 </h1><hr/>
+<p>라멘을 구성하는 요소는 면, 소스, 육수, 고명이라고 볼 수 있다. 소스는 흔히 시오(소금), 쇼유(간장), 미소(된장)의 3대 체제를 차용하며 이 3대 라면이 기본이다. 이 소스는 따로 조리하여 라멘을 낼 때 육수에 풀어넣는다. 육수를 끓이는 커다란 통에 함께 넣고 끓이는 게 아니다.  육수는 라멘 유행의 계기가 되고 현재는 가장 인기 있는 돈코츠(돼지뼈) 육수가 가장 대중적이다. 이 외에 닭뼈, 어패류 등의 다양한 육수를 사용한다. 자기 색을 가지려는 소위 '뉴웨이브' 라멘집에서는 육수끼리도 섞는 경우가 흔하다.</p>
+	<h1><a id="3.1" href="#doc">3.1.</a>라면의 종류 </h1><hr/>
+    <ul>
+    	<li><b>돼지뼈 계열(돈코츠)</b>:돼지 특유의 구수하고 비린 맛. 한국에서도 가장 흔하게 접할 수 있는 것이고 일본 라멘의 표준이기도 하다. 돼지의 통뼈를 부수고 골수를 뽑아 만드므로 유백색(또는 상아색)으로 탁한 빛깔을 가진다. 돈코츠 라멘이 유행하면서 라멘은 중화요리집의 메뉴 중 하나였던 기존의 '중화소바' 에서 탈피해 독립된 요리로 인정받게 되었다고 볼 수 있을 만큼 현재는 대중적인 육수이다. 대중적이다 보니 돈코츠시오, 돈코츠쇼유, 돈코츠미소 등 파생형도 많다.</li>
+    	<li><b>닭뼈 계열</b>: 닭 특유의 칼칼한 감칠맛. 대량의 닭뼈를 우려낸 국물로 곰국 비슷한 비교적 맑은 색깔을 띈다. 닭뼈 베이스에 약간의 돼지뼈로 우려낸 육수에 소금이나 간장 소스로 간을 한 것이 '중화소바' 로 라멘의 출발점이라고 할 수 있다.</li>
+    	<li><b>어패류 계열</b>: 어패류 특유의 개운하고 시원한 맛. 가다랭이포나 멸치와 같은 말린 생선을 기본으로 다시마, 조개 등을 첨가해 끓여낸 국물이다. 자기 색이 강하면서도 개운한 맛이 특징이나 뼈 국물과는 어울리기 힘든 게 단점이다.</li>
+    	<li><b>채소 계열</b>: 버섯[13] 양파, 무, 배추, 당근을 비롯한 뿌리채소 등을 끓여 우려낸다. 단독으로 쓰이는 경우는 드물고 주로 다른 국물들의 잡내를 상쇄시키거나 깔끔한 맛을 강조하는 용도로 쓰인다. 주로 궁합이 잘 맞는 미소 라멘과 결합된다.</li></ul>
+    	<h1><a id="3.2" href="#doc">3.2.</a>특수한 라면 </h1><hr/>
+    	<ul><li><b>츠케멘</b>:메밀소바처럼 소스에 진하게 조린 국물을 조금 넣어 만든 장에 찍어먹는다. 뜨거운 소스와 차가운 면의 온도차를 즐기는 라멘이여 특성상 한국의 모밀면처럼 여름이 성수기인 메뉴이다.</li>
+    	<li><b>아부라멘</b>:아부라소바(油そば)라고도 한다. 아예 육수가 빠지고 향이 강한 기름으로 섞어먹는 일종의 비빔 라멘.</li>
+    	<li><b>탄탄멘</b>:일본에서 탄탄멘은 국물이 많은 타입과 적은 타입 두 부류로 나뉘는데 많은 타입은 사실 쓰촨식 탄탄멘과는 별개로 일본식 라멘과의 콜라보로 탄생한 음식이다. 두반장과 쇼유타레 및 땅콩소스를 섞어서 만든다.
+    	</li>
+        </ul>
+        <h1><a id="4" href="#doc">4.</a>고명 </h1><hr/>
+        <P>한국 라면은 분식집에서 끓여주는 것이라 해도 계란이나 파 정도 추가가 고작이지만 일본 라멘은 아래에 열거한 고명들이 필수요소급으로 들어간다. 이를 통해 식감과 풍미를 강화하는 한편 때로는 요리사의 스킬 지표가 되기도 한다. 같은 차슈나 반숙 달걀이라도 요리사 실력에 따라 그 풍미와 식감이 천차만별이기 때문.일본 라멘 가게에서 볼 수 있는 만두는 절대 다수가 사이드 메뉴에 해당하는 구운 교자류이다. 고명에 쓰는 나물류에 있어서도 한국에서는 콩나물, 일본에서는 숙주나물이라는 것 또한 차이점.</P>
+        <ul>
+        <li><b>차슈</b>: 재차 구웠다는 뜻의 조린 고기 중국 요리인 차사오가 원형이다. 보통 삼겹살을 포함한 기름기가 많은 부위가 쓰인다. 돈코츠 라멘 국물을 우려내거나 쇼유 라멘에 쓰이는 간장 소스를 만들고 난 부산물을 고명으로 사용하므로 차슈와 국물의 맛에 일체감이 있어야 제대로 된 것이다. 보통은 저렴한 헝가리, 프랑스 등지 원산의 유럽산 차슈가 많이 쓰인다.</li>
+        <li><b>아지타마고(맛달걀) </b>: 기본적으로 반숙 계란이지만 요리사가 숙련된 경우에는 온천 계란 기법을 응용해 소스에 담궈놓아 맛이 배인 것을 사용한다. 쉽게 말해서 장조림에 들어가는 달걀과 비슷한데 반숙이다. 별 것 아닌 것 같아도 의외로 그 가게 요리사의 수준 척도로 쓰일 정도로 반숙에 실력이 필요해서 양산형 라멘 체인의 경우엔 그냥 쌩 삶은 달걀을 대용으로 쓰거나 아예 빼버리기도 한다. 잘 만든 물건의 경우 반숙된 계란 노른자에까지 독특한 풍미가 배여들어 극상의 풍미를 낸다.</li>
+        <li>그 외 숙주나물, 목이버섯, 대파, 양파, 어묵, 김, 향미유 등이 보편적인 고명으로 들어가며 각 점포마다 별도의 비법액이 첨가된다.</li>
+        <li>옵션으로는 대부분 시치미, 후추, 참깨를 제공하며, 가게에 따라서는 초절임 생강이나 다진 마늘을 제공하기도 한다. 식탁에 없더라도 요청하면 주는 경우가 많으니 참고하자. 특히나 한국의 경우 직접 깨먹으라며 마늘과 함께 도구를 주는 곳도 많다. 구운 마늘을 얹어주는 곳도 있지만 가게에 따라 다르며 기본 옵션과는 거리가 멀다.</li>
+        </ul>
+</div>
+<footer>
+<div style="text-align: left" >
+<hr/>
+<span>
+<span id="m-1"></span><a href="#rm-1">[1]</a><a href="ziro.html">지로라면</a>,마루겐라면 집은 명인이다!!</span>
+</div>
+</footer>
+</div>
+</body>
+</html>

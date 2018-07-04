@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta>
+  <title></title>
+  <style>
+a:hover{color: #AA9866;}
+
+  a{
+    color:  rgb(255, 255, 255);
+    text-decoration:none;
+
+  }
+  /*윗 창*/
+#top_bar{
+  background-color: rgba(0,0,0,0.75);
+  position: fixed;
+    float: left;
+  left: 0; top: 0; right: 0;
+    height: 150px;
+    opacity: .7;
+    z-index: 100;
+}
+
+#top_bar h1{
+  margin: -20px auto;
+  text-align: center;
+}
+
+#audio{
+  width: 230px;
+  height: 24px;
+  /*절대 위치*/
+  position: absolute;
+left: 0px;
+top: 7px;
+}
+.intro{
+  float:left;
+  font-size: 20px;
+  font-family: MuseoSlab-300,"Times New Roman",Georgia,Serif;
+  position: absolute;
+  bottom: 0px;
+}
+
+body{
+  margin: 0 auto;
+  width: 1050px;
+  background: rgba(0,0,0,0.75);
+}
+#wrapper{
+  margin-top: 170px;
+  background-color:  rgba(0,0,0,0.75);
+  height: 1800px;
+
+}
+h2{
+  font-size: 20px;
+    color: #AA9866;
+    border-bottom: 1px solid #AA9866;
+  text-align: center;
+}
+#nav span{
+  display: block;
+  text-align: center;
+}
+  #topMenu {
+            height: 30px;  /* 메인 메뉴의 높이 */
+            width: 450px;  /* 메인 메뉴의 넓이 */
+    }
+    #topMenu ul {           /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
+        list-style-type: none;  /* 메인 메뉴 안의 ul 내부의 목록 표시를 없애줌 */
+        margin: 0px;            /* 메인 메뉴 안의 ul의 margin을 없앰 */
+        padding: 0px;           /* 메인 메뉴 안의 ul의 padding을 없앰 */
+    }
+    #topMenu ul li {            /* 메인 메뉴 안에 ul 태그 안에 있는 li 태그의 스타일 적용(상위/하위메뉴 모두) */
+          color:rgb(255, 255, 255);      
+        background-color: rgba(0,0,0,0.75);
+        float: left;    
+        margin: 0px 10px;
+        line-height: 30px;          /* 텍스트 한 줄의 높이를 30px로 설정 */
+        vertical-align: middle;     /* 세로 정렬을 가운데로 설정 */
+        text-align: center;         /* 텍스트를 가운데로 정렬 */
+        position: relative;         /* 해당 li 태그 내부의 top/left 포지션 초기화 */
+    }
+    .menuLink, .submenuLink {           /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
+        text-decoration:none;               /* a 태그의 꾸밈 효과 제거 */
+        display: block;                     /* a 태그의 클릭 범위를 넓힘 */
+        width: 200px;                       /* 기본 넓이를 150px로 설정 */
+        font-size: 20px;                    /* 폰트 사이즈를 12px로 설정 */
+        font-weight: bold;                  /* 폰트를 굵게 설정 */
+        font-family:  MuseoSlab-300,"Times New Roman",Georgia,Serif;
+    }
+    .topMenuLi:hover .menuLink {    /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
+        color: #AA9866;                
+        background-color: rgba(0,0,0,0.75); 
+    }
+    .submenuLink {          /* 하위 메뉴의 a 태그 스타일 설정 */
+     color: rgb(255, 255, 255);           
+        background-color:rgba(0,0,0,0.75);     
+   
+    }
+
+    .submenu {              /* 하위 메뉴 스타일 설정 */
+        position: absolute;     /* html의 flow에 영향을 미치지 않게 absolute 설정 */
+        height: 0px;            /* 초기 높이는 0px로 설정 */
+        overflow: hidden;       /* 실 내용이 높이보다 커지면 해당 내용 감춤 */
+        transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(기본) */
+        -webkit-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 크롬/사파라ㅣ) */
+    }
+    .topMenuLi:hover .submenu { /* 상위 메뉴에 마우스 모버한 경우 그 안의 하위 메뉴 스타일 설정 */
+        height: 93px;           /* 높이를 93px로 설정 */
+    }
+    .submenuLink:hover {        /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
+         color: #AA9866;                
+        background-color: rgba(0,0,0,0.75); 
+    }
+
+.item {
+  width:280px;
+  height:280px; 
+  border:1px solid #AA9866;  
+  margin:20px 45px 20px 21px;
+  
+  /* required to hide the image after resized */
+  overflow:hidden;
+  
+  /* for child absolute position */
+  position:relative;
+  
+  /* display div in line */
+  float:left;
+}
+
+.item .caption {
+  width:280px;
+  height:280px;
+  background:#000;
+  color:#fff;
+  font-weight:bold;
+    
+  /* fix it at the bottom */
+  position:absolute;
+  left:0;
+opacity: 0.7;
+  /* hide it by default */
+  display:none;
+
+}
+
+.item .caption a {
+  text-decoration:none;
+  color:#AA9866;
+  font-size:16px; 
+  
+  /* add spacing and make the whole row clickable*/
+  padding:5px;
+  display:block;
+}
+
+.item .caption p {
+  padding:5px;  
+  margin:0;
+  font-size:15px;
+}
+
+img {
+  border:0;
+  
+  /* allow javascript moves the img position*/
+  position:absolute;
+}
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>>
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+  <script src="jquery-1.3.1.js"></script>
+<script>
+$(document).ready(function() {
+
+  //move the image in pixel
+  var move = -15;
+  
+  //zoom percentage, 1.2 =120%
+  var zoom = 1.2;
+
+  //On mouse over those thumbnail
+  $('.item').hover(function() {
+    
+    //Set the width and height according to the zoom percentage
+    width = $('.item').width() * zoom;
+    height = $('.item').height() * zoom;
+    
+    //Move and zoom the image
+    $(this).find('img').stop(false,true).animate({'width':width, 'height':height, 'top':move, 'left':move}, {duration:200});
+    
+    //Display the caption
+    $(this).find('div.caption').stop(false,true).fadeIn(200);
+  },
+  function() {
+    //Reset the image
+    $(this).find('img').stop(false,true).animate({'width':$('.item').width(), 'height':$('.item').height(), 'top':'0', 'left':'0'}, {duration:100});  
+
+    //Hide the caption
+    $(this).find('div.caption').stop(false,true).fadeOut(200);
+  });
+
+});
+</script>
+</head>
+<body>
+<div id="top_bar">
+  <div>
+   <h1>
+      <audio id="audio" src="stayalone.mp3" controls ></audio>
+    <a  href="homepage.html"><img src="img/logo.png" width="300X150"/></a>
+   </h1>   
+  </div>
+<div>
+ <ul class="intro">
+<nav id=topMenu>
+  <ul>
+    <li><a href="homepage.html">HOME</a></li>
+    <li><a href="intro.html">INTRODUCE</a></li>
+    <li class="topMenuLi">MENU
+    <ul class="submenu">
+      <li><a class="submenuLink longLink" href="Gallery.html">면류</a></li>
+      <li><a class="submenuLink longLink" href="Gallery2.html">사이드 메뉴</a></li>
+    </ul></li>
+    <li><a href="homepage.html#inf">RESERVATION</a></li>
+  </ul>
+  </nav>
+ </ul>
+</div>
+</div>
+
+<div id="wrapper">
+<div class="cycle-slideshow"  data-cycle-timeout=2000 > 
+<div class="cycle-paper"></div>
+<img src="img/gallery2-1.jpg"  style="width:1050px;height:480px;">
+<img src="img/gallery2-2.jpg"  style="width:1050px;height:480px;">
+<img src="img/gallery2-3.jpg"  style="width:1050px;height:480px;">
+<img src="img/gallery2-4.jpg"  style="width:1050px;height:480px;">
+<img src="img/gallery2-5.jpg"  style="width:1050px;height:480px;">
+<img src="img/gallery2-6.jpg"  style="width:1050px;height:480px;">
+<img src="img/gallery2-7.jpg"  style="width:1050px;height:480px;">
+</div>
+
+  <div id="nav">
+  <h2>GALLERY</h2>
+<div class= item><a href="#"><img src="img/gallery2-1.jpg" width="280" height="280" style="width: 280px; height: 280px; display: block"></a>
+<div class="caption" style="display:none"><a href="homepage.html#inf">규동</a><p>소고기와 츠유소스에 버무려진 밥맛은 이루 말할 수가 없습니다.</p><h2>480엔</h2></div></div>
+<div class= item><a href="#"><img src="img/gallery2-2.jpg" width="280" height="280" style="width: 280px; height: 280px; display: block"></a>
+<div class="caption" style="display:none"><a href="homepage.html#inf">오야코동</a><p>닭고기와 계란의 어우러짐.</p><h2>480엔</h2></div></div>
+<div class= item><a href="#"><img src="img/gallery2-3.jpg" width="280" height="280" style="width: 280px; height: 280px; display: block"></a>
+<div class="caption" style="display:none"><a href="homepage.html#inf">야키소바</a><p>짭쪼름하면서 해산물이 씹히는 감촉.</p><h2>420엔</h2></div></div>
+<div class= item><a href="#"><img src="img/gallery2-4.jpg" width="280" height="280" style="width: 280px; height: 280px; display: block"></a>
+<div class="caption" style="display:none"><a href="homepage.html#inf">오코노미야키</a><p> 푸짐한 양에 한 번 놀라고 맛에 한 번 더 놀랍니다.</p><h2>800엔</h2></div></div>
+<div class= item><a href="#"><img src="img/gallery2-5.jpg" width="280" height="280" style="width: 280px; height: 280px; display: block"></a>
+<div class="caption" style="display:none"><a href="homepage.html#inf">교자</a><p>교자가 씹히는 맛의 감촉은 극상!</p><h2>760엔</h2></div></div>
+<div class= item><a href="#"><img src="img/gallery2-6.jpg" width="280" height="280" style="width: 280px; height: 280px; display: block"></a>
+<div class="caption" style="display:none"><a href="homepage.html#inf">가츠동</a><p>돈가스의 바삭함과 계련의 부드러움의 이상향</p><h2>500엔</h2></div></div>
+<div class= item><a href="#"><img src="img/gallery2-7.jpg" width="280" height="280" style="width: 280px; height: 280px; display: block"></a>
+<div class="caption" style="display:none"><a href="homepage.html#inf">카레카츠</a><p>카레인듯 카레아닌 카츠!</p><h2>720엔</h2></div></div>
+  </div>
+</div>
+</body>
+</html>

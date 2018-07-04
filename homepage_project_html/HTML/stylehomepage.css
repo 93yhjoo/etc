@@ -1,0 +1,254 @@
+*{
+	margin:  0 0px;
+	list-style: none;
+	font-family: MuseoSlab-300,"Times New Roman",Georgia,Serif;
+}
+
+a{
+	color: rgb(255, 255, 255);
+	text-decoration:none;
+}
+a:hover{color: #AA9866;}
+
+	
+
+/*고정바*/
+#top_bar{
+	background-color: rgba(0,0,0,0.75);
+	position: fixed;
+	left: 0; top: 0; right: 0;
+    height: 150px;
+    opacity: .7;
+}
+
+/*왼쪽 정렬*/
+#top_bar {
+	float: left;
+}
+#top_bar h1{
+	margin: -20px auto;
+	text-align: center;
+}
+#audio{
+	width: 230px;
+	height: 24px;
+	/*절대 위치*/
+	position: absolute;
+left: 0px;
+top: 7px;
+}
+/*사이드 바*/
+#side_bar{
+	
+	position: fixed;
+	right: 0; top: 300px; bottom: 100px;
+    width: 50px;
+    opacity: .7;
+}
+.intro{
+	float:left;
+	font-size: 20px;
+	font-family: MuseoSlab-300,"Times New Roman",Georgia,Serif;
+}
+  #topMenu {
+            height: 30px;  /* 메인 메뉴의 높이 */
+            width: 450px;  /* 메인 메뉴의 넓이 */
+    }
+    #topMenu ul {           /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
+        list-style-type: none;  /* 메인 메뉴 안의 ul 내부의 목록 표시를 없애줌 */
+        margin: 0px;            /* 메인 메뉴 안의 ul의 margin을 없앰 */
+        padding: 0px;           /* 메인 메뉴 안의 ul의 padding을 없앰 */
+    }
+    #topMenu ul li {            /* 메인 메뉴 안에 ul 태그 안에 있는 li 태그의 스타일 적용(상위/하위메뉴 모두) */
+        color:rgb(255, 255, 255);
+        background-color: rgba(0,0,0,0.75);
+        float: left;    
+        margin: 0px 10px;
+        line-height: 30px;          /* 텍스트 한 줄의 높이를 30px로 설정 */
+        vertical-align: middle;     /* 세로 정렬을 가운데로 설정 */
+        text-align: center;         /* 텍스트를 가운데로 정렬 */
+        position: relative;         /* 해당 li 태그 내부의 top/left 포지션 초기화 */
+    }
+    .menuLink, .submenuLink {           /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
+        display: block;                     /* a 태그의 클릭 범위를 넓힘 */
+        width: 200px;                       /* 기본 넓이를 150px로 설정 */
+        font-size: 20px;                    /* 폰트 사이즈를 12px로 설정 */
+        font-weight: bold;                  /* 폰트를 굵게 설정 */
+        font-family:  MuseoSlab-300,"Times New Roman",Georgia,Serif;
+    }
+    .topMenuLi:hover .menuLink {    /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
+        color: #AA9866;                
+        background-color: rgba(0,0,0,0.75); 
+    }
+    .submenuLink {          /* 하위 메뉴의 a 태그 스타일 설정 */
+        color: rgb(255, 255, 255);           
+        background-color:rgba(0,0,0,0.75);   
+   
+    }
+
+    .submenu {              /* 하위 메뉴 스타일 설정 */
+        position: absolute;     /* html의 flow에 영향을 미치지 않게 absolute 설정 */
+        height: 0px;            /* 초기 높이는 0px로 설정 */
+        overflow: hidden;       /* 실 내용이 높이보다 커지면 해당 내용 감춤 */
+        transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(기본) */
+        -webkit-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 크롬/사파라ㅣ) */
+    }
+    .topMenuLi:hover .submenu { /* 상위 메뉴에 마우스 모버한 경우 그 안의 하위 메뉴 스타일 설정 */
+        height: 93px;           /* 높이를 93px로 설정 */
+    }
+    .submenuLink:hover {        /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
+         color: #AA9866;                
+        background-color: rgba(0,0,0,0.75); 
+    }
+p{
+	font-size: 15px;
+	font-family: HY견고딕, 'Charcoal', sans-serifif;
+}
+.main_img{
+	background-image: url("img/don.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	text-align: center;
+	overflow: hidden;
+}
+
+.see_more a{
+	padding: 11px 8px;
+	background-color: rgba(170,153,102,0.7);
+
+}
+/*소제목*/
+h2{
+	margin: 0px 0px 1px 0px;
+	font-size: 20px;
+    color: #AA9866;
+    border-bottom: 1px solid #AA9866;
+	text-align: center;
+}
+#wrapper{
+	background-color:  rgba(0,0,0,0.75);
+}
+.contents{
+	box-sizing: border-box;
+  background: rgba(0,0,0,0.75);
+    max-width: 1240px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+  overflow: hidden;
+}
+.contents h2{
+	margin-top: 10px;
+}
+.outer{
+	width: 1240px;	
+	height: 300px;	
+}
+.title{
+	text-align: center;
+	margin: 2px 0px;
+	background-color: #FFDEA6;
+	border-radius: 7px;
+	opacity: .7;
+
+}
+.article{
+	width: 400px;
+	height: 220px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+#article_img{
+	margin: 0 80px;
+}
+/*메뉴폰트 스타일*/
+.menu_name{
+	font-size: 20px;
+    color: #AA9866;
+    text-align: center;
+}
+/*각 항목별 스타일*/
+.front1{
+	float: left;
+margin: 10px 100px 10px 70px;
+width: 400px;
+height: 280px;
+color: black;
+background: white;
+padding: 5px 5px 3px 5px;
+border: 2px solid rgba(0,0,0,0.75);
+border-radius: 7px;
+}
+.front2{
+	float: left;
+margin: 10px 100px 10px 100px;
+width: 400px;
+height: 280px;
+color: black;
+background: white;
+padding: 5px 5px 3px 5px;
+border: 2px solid rgba(0,0,0,0.75);
+
+border-radius: 7px;
+}
+.Menu1{
+float: left;
+margin: 10px 100px 10px 70px;
+width: 410px;
+height: 280px;
+background: white;
+padding: 5px 5px 3px 5px;
+border: 2px solid rgba(0,0,0,0.75);
+
+border-radius: 7px;
+}
+.Menu2{	
+	float: left;
+margin: 10px 100px 10px 100px;
+width: 400px;
+height: 280px;
+background: white;
+padding: 5px 5px 3px 5px;
+border: 2px solid rgba(0,0,0,0.75);
+
+border-radius: 7px;
+}
+.inner{
+	padding: 7px 0px 0px 7px;
+}
+.tantanmen{
+	float: right;
+	border-radius: 7px;
+}
+
+.button{
+	text-align: center;
+	width: 20%;
+	margin: 40px auto 30px auto;
+	padding: 0px;
+}
+#reservation {
+	text-align: center;
+	margin: 0px auto 30px auto;
+	padding: 0px;
+}
+#submit{
+    color: #fff;
+    border-radius: 0;
+    padding: 12px;
+    border: none;
+    background-color: #aa9966;
+	text-align: center;
+	width: 70%;
+	margin: 20px auto 20px auto;
+}
+#submit:hover{background-color: #645528;}
+fieldset{
+	text-align: middle;
+	vertical-align: middle; 
+	margin: 0 400px;
+	border:2px solid #AA9866;
+}
+#information{
+	width: 100px;
+}

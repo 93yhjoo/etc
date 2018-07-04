@@ -1,0 +1,73 @@
+h2,h3{
+	color: #AA9866;
+}
+
+body{
+  background: rgba(0,0,0,0.75); 
+}
+#wrapper{
+    box-sizing: border-box;
+  background: rgba(0,0,0,0.75);
+    max-width: 1240px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.contents{
+    box-sizing: border-box;
+    max-width: 1240px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+
+}
+.left_contents{
+	float: left;
+margin: 10px 70px 10px 70px;
+width: 400px;
+height: 180px;
+background: white;
+padding: 5px 5px 3px 5px;
+border:2px solid #AA9866;
+border-radius: 7px;
+}
+.right_contents{
+	float: left;
+margin: 10px 100px 10px 70px;
+width: 400px;
+height: 180px;
+color: black;
+background: #AA9866;
+padding: 5px 5px 3px 5px;
+border: 2px solid rgba(0,0,0,0.75);
+
+border-radius: 7px;
+}
+fieldset{
+	vertical-align: middle; 
+	border:2px solid #fff;
+}
+.login_box{
+	margin: 10px 100px 0 100px;
+}
+.user_login{
+
+    margin-right: 10px;
+}
+.btn_login{
+    width: 120px;
+    height: 30px;
+    border: 0;
+    background-color: #AA9866;
+    font-family: 'Malgun Gothic','맑은고딕';
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: -1px;
+    display: inline-block;
+    margin-right: 50px;
+    padding:1px 6px;
+}
+.footer{
+ opacity: .7;
+}

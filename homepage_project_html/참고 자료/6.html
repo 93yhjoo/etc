@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<button id="button">button</button>
+<h1>from</h1>
+<script>
+	var header=document.querySelector('h1');
+	var count=0;
+	document.getElementById('button').onclick=function(){
+		count++;
+		this.textContent+="*";
+		header.textContent=count;
+		
+	};
+
+
+
+</script>
+
+</body>
+</html>
