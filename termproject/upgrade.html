@@ -49,14 +49,14 @@
         document.getElementById("exam").innerHTML+="<ol><li>一つの場面は一個した動けない。</li>"+
             "<li>大きな円盤が小さな円盤の上に並べない。</li></ol>"
     }
-    //타워 객체 생성
+    //타워 객체 생성　塔の個体を作る
     function tower(arg_i){
         this.img=arg_i+".gif";
         this.name=arg_i+1;
     }
 
     function Createtower(){
-        //<div>태그 초기화
+        //<div>태그 초기화　<div＞タグ初期化
         for(var row=0;row<5;row++){
             for(var col=0;col<3;col++){
                 var div=document.getElementById("col_"+col).getElementsByClassName(row)[0];
